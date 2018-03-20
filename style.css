@@ -1,0 +1,193 @@
+/*
+    Code of help.cloudsdalefm.net is licensed under the Mozilla Public License 2.0
+    https://www.mozilla.org/en-US/MPL/2.0
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Hind');
+
+body
+{
+    margin: 0;
+    background: rgb(20, 40, 61);
+    color: white;
+    font-family: "Hind", sans-serif;
+}
+
+.topbar
+{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+	top: 0; left: 0;
+    position: fixed;
+    background: rgb(19, 58, 99);
+    z-index: 4;
+}
+
+.topbar .logo
+{
+    background: url("https://cloudsdalefm.net/images/current-logo-smaller.png");
+    background-size: cover;
+    width: 200px;
+    height: 80px;
+    position: absolute;
+    top: 10px; left: 20px;
+    cursor: pointer;
+}
+
+input
+{
+    border: 0 #223549;
+    background: #081b30;
+    color: white;
+    min-height: 30px;
+    padding: 10px;
+    margin: 0;
+    outline: 0;
+}
+
+a
+{
+    color: white;
+}
+
+a:hover
+{
+    color: #e7e7e7;
+}
+
+input[type=text]
+{
+    min-width: 300px;
+    width: 35%;
+}
+input[type=text]:focus
+{
+    border: 3px #223549 solid;
+    border-right: 0;
+    transform: translateX(-1px);
+    outline: 0;
+}
+input[type=text]:focus ~ input[type=submit]
+{
+    border: 3px #223549 solid;
+    border-left: 0;
+    height: 56px;
+    transform: translateX(-1px);
+    outline: 0;
+}
+input[type=submit]
+{
+    width: 70px;
+    height: 50px;
+    cursor: pointer;
+}
+input[type=submit]:hover
+{
+    background: #0e2a49;
+}
+
+.content
+{
+    position: relative;
+    top: 100px;
+    margin-bottom: 20px;
+}
+
+table
+{
+    margin: 0 auto;
+    transform: translateY(10%);
+}
+
+table, td
+{
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+tr
+{
+    margin: 0;
+}
+
+tr:nth-child(odd)
+{
+    background: rgba(255,255,255,0.02);
+}
+
+tr:first-child
+{
+    background: rgba(255,255,255,0.2);
+}
+
+table tr.ftr
+{
+    font-weight: bold;
+}
+
+.legal
+{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+}
+
+.article
+{
+    border-radius: 10px;
+    background: #081b30;
+    width: 60%;
+    min-width: 760px;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 20px;
+    transform: translateY(20px);
+}
+
+.article h2, h4
+{
+    line-height: 10px;
+}
+
+textarea
+{
+    background: #071423;
+    width: 100%;
+	max-width: 100%;
+    min-height: 100px;
+	max-height: 650px;
+    border: 0;
+    color: white;
+}
+
+.article img
+{
+    max-width: 40%;
+    max-height: 300px;
+}
+
+p.centered
+{
+    text-align: center;
+}
+
+a.toright
+{
+    text-align: right;
+}
+
+@media screen and (max-width: 870px)
+{
+    .topbar
+    {
+        text-align: right;
+    }
+    input[type=submit]
+    {
+        margin-right: 20px;
+    }
+}
