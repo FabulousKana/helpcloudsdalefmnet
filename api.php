@@ -1,4 +1,5 @@
 <?php
+    require 'vendor/autoload.php';
 
     error_reporting(E_ERROR | E_PARSE);
 
@@ -27,22 +28,12 @@
     
     function parseArticle($articleName)
     {
+        $parser = new Parsedown();
+        $parser->setSafeMode(true);
         /* get contents of the file */
-        $article = file_get_contents("articles/$articleName/content.txt", true);
-        /* remove html tags, and create links */
-        $article = preg_replace("/{{(https?:\/\/[^\s]+)}!(.+)!}/", "<a href='$1' target='_blank'>$2</a>", htmlentities($article));
-        /* create bold text */
-        $article = preg_replace("/,,(.+),,/", "<b>$1</b>", $article);
-        /* create images */
-        $article = preg_replace("/=(https?:\/\/[^\s]+)=/", "<img src='$1'>", $article);
-        /* new lines */
-        $article = str_replace(array("\n", "\r"), "<br>", $article);
-        /* text area */
-        $article = preg_replace("/\`\`(.+)\`\`/", "<textarea>$1</textarea>", $article);
-        /* center */
-        $article = preg_replace("/\_\_(.+)\_\_/", "<p class='centered'>$1</p>", $article);
-        /* remove backslashes */
-        $article = str_replace("\\", "", $article);
+        $article = file_get_contents("articles/$articleName/content.md", true);
+        /* remove html tags, and parse */
+        $article = $parser->text($article);
         /* get metadata */
         $articleInfo = getMeta($articleName);
         /* return that stuff */
